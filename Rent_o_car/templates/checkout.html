@@ -1,0 +1,81 @@
+
+<style>
+    body {
+        background-color: #333; /* dark background color */
+        color: white;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    img {
+        max-width: 500px;
+        width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .checkout-button {
+        display: inline-block;
+        background-color: green;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 25px; /* round button */
+        text-decoration: none;
+        margin-top: 20px;
+    }
+
+    .checkout-button:hover {
+        background-color: darkgreen;
+    }
+
+    .billing {
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    .billing-item {
+        margin-bottom: 10px;
+    }
+
+    .billing-total {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        {% for i in details %}
+        <img src={{i["link"] }} alt="Image" width="500" height="500">
+        <form action="checkout" method="post">
+            <button type="submit" class="checkout-button"> Pay</button>
+        </form>
+       
+        <div class="billing">
+           
+            <h1>Billing Information</h1>
+            
+            <div class="billing-item">Name : - {{i["Name"]}}</div>
+            <div class="billing-item">Gst : - 18% </div>
+            <div class="billing-total">Ex-Showroom : {{price}}</div>
+           
+        </div>
+        {% endfor %}
+    </div>
+   
+    <!-- <h2> For more enquiry give your details </h2> -->
+  
+
+</body>
+</html>

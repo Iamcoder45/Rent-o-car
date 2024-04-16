@@ -1,0 +1,155 @@
+
+{% block content %}
+<title>Car Showroom</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body covers the entire viewport height */
+}
+
+.navbar {
+  background-color: #222;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+.search-form {
+  position: relative;
+}
+
+.search-input {
+  padding: 8px 30px 8px 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #444;
+  color: #fff;
+  width: 200px;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.container {
+  flex: 1; /* Allow the container to grow and take up remaining space */
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  width: 30%;
+  margin-bottom: 20px;
+  background-color: #222;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.card img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  color: #ccc;
+}
+
+.card-price {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.footer {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 20px 0;
+}
+</style>
+
+
+<body>
+
+<div class="navbar">
+  <h1>Car Showroom</h1>
+  <form class="search-form" action="#" method="post">
+    <input class="search-input" type="text" placeholder="Search..." name="search">
+    <button class="search-button" type="submit">Search</button>
+  </form>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+
+{% for i in cc %}
+   
+    <div class="card">
+      <img src={{i["link"]}} alt="Car 2">
+      <div class="card-content">
+        <h2 class="card-title">{{i["Name"]}}</h2>
+        <p class="card-description">{{i["Model"]}}</p>
+        <p class="card-price">{{i["Price"]}}</p>
+      </div>
+    </div>
+
+{% endfor %}
+
+
+
+</div>
+</div>
+
+
+<div class="footer">
+  <p>&copy; 2024 Car Showroom. All Rights Reserved.</p>
+</div>
+
+</body>
+
+
+{% endblock %}
+
